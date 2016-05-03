@@ -14,6 +14,10 @@ pageHeader("Volunteers");
 $connection = connectDB();
 if($connection->connect_error) die("unable to connect to database".$connection->connect_error);
 
+session_start();
+if (!isset($_SESSION['user']))
+	header("Location: http://localhost:81/phpExamples/Habitat%20Web%20App/loginPortal.php");
+
 echo <<<_END
 	
 	<h2>Store Hours, Come help out whenever you are available</h2>
@@ -54,7 +58,7 @@ echo <<<_END
 		</tr>
 	</table>
 	<br>
-		<h2 id='createVol'><td><a href='newVolunteer.php'>Add New Volunteer Information</a></h2>";
+		<h2 id='createVol'><a href='newVolunteer.php' class='btn'>Add New Volunteer Information</a></h2>
 _END;
 	$query2 = "SELECT vEmail, vFName, vLName, vPhone, vStreet, vCity, vZip FROM volunteer";
 

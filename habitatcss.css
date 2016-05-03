@@ -3,19 +3,27 @@
 body {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	text-align: center;
-	background: url("images/background.jpg");
-	background-size: 200px 150px;
-	background-repeat: repeat;
-	background-color:rgba(0, 0, 0, 0.5)
-	
+	background: url(images/repeating-vertical.png)
 }
 
-table {
+table, tr, th{
 	margin-left: auto;
 	margin-right: auto;
+	border: 2px solid black;
+	padding: 10px;
+}
+table {
+	margin-bottom: 30px;
+	background-color: #EBEBEB;
+}
+fieldset {
+	border: none;
 }
 ul li {
 	list-style-type: none;
+}
+#logout {
+	margin-bottom: 50px;
 }
 /* Menu navigation code is open source from the internet, found at http://www.cssflow.com/snippets/light-horizontal-navigation */
 .container {
@@ -134,4 +142,36 @@ ul li {
 }
 /* End of menu navigation code */
 
+/* Button CSS Styles generated from a button generator at http://css3buttongenerator.com/ */
+
+.btn {
+  background: #10e67f;
+  background-image: -webkit-linear-gradient(top, #10e67f, #2980b9);
+  background-image: -moz-linear-gradient(top, #10e67f, #2980b9);
+  background-image: -ms-linear-gradient(top, #10e67f, #2980b9);
+  background-image: -o-linear-gradient(top, #10e67f, #2980b9);
+  background-image: linear-gradient(to bottom, #10e67f, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 1px 3px #030203;
+  -moz-box-shadow: 0px 1px 3px #030203;
+  box-shadow: 0px 1px 3px #030203;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #dfeaf0 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #10e364);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #10e364);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #10e364);
+  background-image: -o-linear-gradient(top, #3cb0fd, #10e364);
+  background-image: linear-gradient(to bottom, #3cb0fd, #10e364);
+  text-decoration: none;
+}
 

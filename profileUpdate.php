@@ -10,8 +10,11 @@
 <?php
 require_once 'habitatheader.php';
 require_once 'habitatdb.php';
-pageHeader("Volunteers");
+pageHeader("Profile Update");
 session_start();
+if (!isset($_SESSION['user']))
+	header("Location: http://localhost:81/phpExamples/Habitat%20Web%20App/loginPortal.php");
+$user = $_SESSION['user'];
 $connection = connectDB();
 
 $email = $_POST['email'];
@@ -23,13 +26,13 @@ $first = $_POST['fName'];
 $last = $_POST['lName'];
 $password = $_POST['pwd'];
 
-$query = "INSERT INTO volunteer(vEmail, vFName, vLName, vPhone, vStreet, vCity, vZip, password)
-		 VALUES ('$email', '$first', '$last', '$phone', '$street', '$city', '$zip', '$password')";
+$query = "UPDATE `volunteer` SET `vEmail`= '$email',`vFName`='$first',
+		`vLName`='$last',`vPhone`= '$phone',`vStreet`= '$street',`vCity`= '$city',`vZip`= '$zip',`password`= '$password' WHERE vEmail = '$user';";
 $result= $connection->query($query);
 if(!$result) die ("Query failed".$connection->error());
 
-echo "<h3>New Volunteer has been added to the database! Their login credentials are their email($email) and their password is $password.<br></h3>";
-echo "<h2 id='createVol'><td><a href='volunteer.php' class='btn'>Return to Volunteer Page</a></h2>";
+echo "<h3>Profile information has been Updated<br></h3>";
+echo "<h2 id='updateProf'><td><a href='profile.php'  class='btn'>Return to Profile Page</a></h2>";
 ?>
 </body>
 </html>

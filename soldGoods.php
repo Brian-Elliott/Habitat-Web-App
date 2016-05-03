@@ -12,11 +12,10 @@ pageHeader("Current Inventory");
 session_start();
 if (!isset($_SESSION['user']))
 	header("Location: http://localhost:81/phpExamples/Habitat%20Web%20App/loginPortal.php");
-$user = $_SESSION['user'];
 $connection= connectDB();
 if($connection->connect_error) die("unable to connect to database".$connection->connect_error);
 
-$query="SELECT itemID, description, donorEmail, price, quantity FROM inventory";
+$query="SELECT saleDate, description, donorEmail, price, quantity FROM soldgoods";
 $result=$connection->query($query);
 
 if(!$result) die ("Query failed".$connection->error());
@@ -25,10 +24,10 @@ $rows=$result->num_rows;
 echo "<table>";
 echo <<<_END
 	<th> Item Name </th>
+	<th> Date Sold </th>
 	<th> Price </th>
 	<th> Quantity </th>
 	<th> Donor Email </th>
-	
 _END;
 for($i=0; $i<$rows; $i++)
 {
@@ -41,21 +40,16 @@ for($i=0; $i<$rows; $i++)
 	$price=$record["price"];
 	$dEm=$record["donorEmail"];
 	$qu=$record["quantity"];
-
-	$id = $record["itemID"];
+	$date = $record["saleDate"];
 
 echo <<<_END
 	
 	<form action="soldGoodAdd.php" method="post">
 	<td><b><input type="text" name="desc" value="$iN" readonly><br></b></td>
+	<td><b><input type="text" name="date" value="$date" readonly><br></b></td>
 	<td> <input type="text" name="price" value="$price" readonly><br></td>
 	<td> <input type="text" name="quan" value="$qu" readonly></td>
 	<td> <input type="text" name="dEmail" value="$dEm" readonly></td>
-
-	<input type="hidden" name="id" value="$id">
-	<td>
-	<input type="submit" value="Sold"></td>
-		
 	</form>
 
 _END;
@@ -65,7 +59,6 @@ _END;
 	
 }
 echo"</table>";
-echo "<a href='newInventory.php' class='btn'>Add New Inventory Item</a>";
 closeConnection($result, $connection);
 ?>
 </body>

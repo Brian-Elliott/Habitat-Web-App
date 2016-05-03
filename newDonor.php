@@ -16,21 +16,21 @@ session_start();
 
 echo <<<_END
 
-	<form action="donRedirect.php" method="post">
+	<form action="donRedirect.php" onsubmit= "return allvalid2()" method="post">
 		<fieldset>
 			<legend>Personal information:</legend>
   			Email Address:<br>
-			<input type="text" name="email"><br>
+			<input type="text" id="email" name="email"><span class="error" id="errEmail"></span><br>
 			First Name:<br>
-			<input type:"text" name="fName"><br>
+			<input type="text" id="FN" name="fName"><span class="error" id="errFN"></span><br>
 			Last Name:<br>
-			<input type:"text" name="lName"><br>
+			<input type="text" id="LN" name="lName"><span class="error" id="errLN"></span><br>
 			Phone Number:<br>
-			<input type:"text" name="phone"><br>
+			<input type="text" id="phone" name="phone"><span class="error" id="errPhone"></span><br>
 			Address(Street/City, State/Zip):<br>
-    		<input type="text" name="street"><br>
-    		<input type="text" name="city"><br>
-			<input type="text" name="zip"><br>
+    		<input type="text" name="street"><span class="error" id="errStreet"></span><br>
+    		<input type="text" name="city"><span class="error" id="errCity"></span><br>
+			<input type="text" name="zip"><span class="error" id="errZip"></span><br>
 			<input type="submit" value="Add Donor">
   </fieldset>
 </form>

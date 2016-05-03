@@ -5,7 +5,13 @@ function pageHeader($pt)
 <h1><img src="images/habitatBanner.png" width="565" height="162"><br>
 $pt </h1>
 
-<<section class="container">
+<section class="container">
+	<div id="logout">
+		<a href='logout.php'  class="btn">Logout</a>
+	</div>
+	<div id="profileBtn">
+		<a href='profile.php' class="btn">Profile</a>
+		
     <nav>
       <ul class="nav">
         <li><a href="home.php" class="nav-icon" title="Home"><span class="icon-home">Home</span></a></li>
@@ -16,6 +22,7 @@ $pt </h1>
       </ul>
     </nav>
   </section>
+		
 <hr />
 _END;
 
